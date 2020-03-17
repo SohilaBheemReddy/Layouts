@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Layouts.Models.EMPDATA>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("getSelected", "CHECKBOX"))
+{
+    if (Model != null)
+    {
+        <table>
+            <tr>
+                <td>Empno</td>
+                <td>Ename</td>
+                <td>Job</td>
+                <td>ManagerId</td>
+                <td>Hiredate</td>
+                <td>Salary</td>
+                <td>Comm</td>
+                <td>Deptno</td>
+            </tr>
+            @foreach (var e in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" name="ch" id="@e.EMPNO" value="@e.EMPNO" /></td>
+                    <td>@e.EMPNO</td>
+                    <td>@e.ENAME</td>
+                    <td>@e.JOB</td>
+                    <td>@e.MGR</td>
+                    <td>@e.HIREDATE</td>
+                    <td>@e.SAL</td>
+                    <td>@e.COMM</td>
+                    <td>@e.DEPTNO</td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    <input type="submit" value="Extract" />
+                </td>
+            </tr>
+        </table>
+
+    }
+}
